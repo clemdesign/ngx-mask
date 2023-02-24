@@ -329,15 +329,17 @@ export class MaskService extends MaskApplierService {
       this.maskChanged = false;
       return;
     }
-    if (Array.isArray(this.dropSpecialCharacters)) {
-      this.onChange(
-        this._toNumber(this._removeMask(this._removeSuffix(this._removePrefix(inputValue)), this.dropSpecialCharacters))
-      );
-    } else if (this.dropSpecialCharacters) {
-      this.onChange(this._toNumber(this._checkSymbols(inputValue)));
-    } else {
-      this.onChange(this._removeSuffix(inputValue));
-    }
+    setTimeout(() => {
+      if (Array.isArray(this.dropSpecialCharacters)) {
+        this.onChange(
+          this._toNumber(this._removeMask(this._removeSuffix(this._removePrefix(inputValue)), this.dropSpecialCharacters))
+        );
+      } else if (this.dropSpecialCharacters) {
+        this.onChange(this._toNumber(this._checkSymbols(inputValue)));
+      } else {
+        this.onChange(this._removeSuffix(inputValue));
+      }
+    });
   }
 
   private _toNumber(value: string | number | undefined | null) {

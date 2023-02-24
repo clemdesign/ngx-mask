@@ -29,6 +29,7 @@
   "scripts": {
     "build": "ng build showcase --configuration production",
     "build:lib": "ng build --configuration production ngx-mask-lib && npm run copy-libdocs",
+    "build:dev": "ng build ngx-mask-lib && npm run copy-libdocs",
     "ci": "npm run lint && npm run build:lib && npm run test:all && npm run build",
     "copy-libdocs": "copyfiles -V -E README.md LICENSE dist/ngx-mask-lib",
     "fix:prettier": "prettier --write \"./**/*.{js,json,md,ts,html,scss}\"",
